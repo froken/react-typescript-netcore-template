@@ -4,9 +4,7 @@
   "description": "React Typescript Netcore Project Template",
   "private": true,
   "scripts": {
-    "test": "jest --watchAll",
-    "start": "nodemon src/server.js --watch",
-    "webpack": "webpack --mode=development --info-verbosity verbose"
+    "test": "jest --watchAll"
   },
   "author": "Alla Yevtukh",
   "license": "MIT",
@@ -34,8 +32,6 @@
   "dependencies": {
     "@types/react": "^16.4.18",
     "@types/react-dom": "^16.0.9",
-    "express": "^4.16.4",
-    "http": "0.0.0",
     "path": "^0.12.7",
     "react": "^16.6.0",
     "react-dom": "^16.6.1"

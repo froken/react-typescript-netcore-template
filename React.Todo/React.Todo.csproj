@@ -44,7 +44,6 @@
   <ItemGroup>
     <None Include="App\App.tsx" />
     <None Include="App\index.tsx" />
-    <None Include="App\server.js" />
     <None Include="tsconfig.json" />
   </ItemGroup>
 
