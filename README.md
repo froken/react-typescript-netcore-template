@@ -4,4 +4,4 @@ It is using:
 - Babel 7
 - Webpack
 
-Webpack hot module replacement (HMR) is also configured and working in astandard Asp.Net Core Webhost.
+Webpack hot module replacement (HMR) is also configured and working in a standard Asp.Net Core Webhost.
