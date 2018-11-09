@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
 
 module.exports = {
     entry: { "main-client": './App/index.tsx' },
@@ -21,5 +20,5 @@ module.exports = {
         path: path.resolve(__dirname, 'wwwroot/js'),
         publicPath: '/'
     },
-    watch: true,
+    watch: true
 };
