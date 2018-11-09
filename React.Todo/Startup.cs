@@ -1,15 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.Webpack;
+using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
 
 namespace React.Todo
 {
@@ -42,6 +40,27 @@ namespace React.Todo
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
+                {
+                    ConfigFile = "webpack.config.js",
+                    HotModuleReplacement = true,
+                    ReactHotModuleReplacement = true,
+                });
+
+                var provider = new FileExtensionContentTypeProvider();
+                // Add new mappings here if needed. the two lines above are for my own needs
+                provider.Mappings[".msg"] = "application/vnd.ms-outlook";
+                provider.Mappings[".properties"] = "text/x-java-properties";
+
+                app.UseStaticFiles(new StaticFileOptions()
+                {
+                    FileProvider = new PhysicalFileProvider(
+                        Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot")),
+
+                    RequestPath = new PathString(""),
+                    ContentTypeProvider = provider,
+                    ServeUnknownFileTypes = true
+                });
             }
             else
             {
@@ -52,10 +71,7 @@ namespace React.Todo
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-            app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
-            {
-                HotModuleReplacement = true
-            });
+            
 
             app.UseMvc();
         }

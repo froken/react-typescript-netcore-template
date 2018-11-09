@@ -10,14 +10,16 @@ module.exports = {
             include: /App/,
             use: 'babel-loader'
         }
-    ]},
+        ]
+    },
+    mode: "development",
     resolve: {
         extensions: ['.tsx', '.ts', '.js']
     },
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'wwwroot/js'),
-        publicPath: path.resolve(__dirname, 'wwwroot')
+        publicPath: '/'
     },
-    watch: true
+    watch: true,
 };

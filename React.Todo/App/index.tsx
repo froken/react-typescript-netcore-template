@@ -1,11 +1,12 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import App from './App';
-import { hot } from 'react-hot-loader';
 
-const HotApp = hot(module)(App);
+if (module['hot']) {
+    module['hot'].accept();
+}
 
 ReactDOM.render(
-    <HotApp />,
+    <App />,
     document.getElementById('root') as HTMLElement
 );

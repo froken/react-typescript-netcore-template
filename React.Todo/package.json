@@ -16,6 +16,7 @@
     "@babel/preset-typescript": "^7.1.0",
     "@types/react-hot-loader": "^4.1.0",
     "aspnet-webpack": "^3.0.0",
+    "aspnet-webpack-react": "^4.0.0",
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
     "babel-loader": "^8.0.4",
